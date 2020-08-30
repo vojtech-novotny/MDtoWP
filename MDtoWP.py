@@ -1,6 +1,9 @@
 import sys
 import argparse
 
+# error messages
+ERR_ARG = "ERROR: Incorrect program argument format. Use -h to see correct argument format."
+
 # reading command line arguments
 argument_parser = argparse.ArgumentParser(description='Program loads a markdown file and a custom css file and converts into a compatible html representation of inline custom css wordpress file for FREE wordpress. Output file will be the same name and destination as the markdown source.')
 argument_parser.add_argument('-s', '--source', action='store', dest='source', help="Path to the markdown source file.")
@@ -14,7 +17,7 @@ output_path = None
 
 # both arguments are required and have to be different
 if arguments.source == None or arguments.css == None or arguments.source == arguments.css:
-    print("Error")
+    print(ERR_ARG)
     exit(10)
 
 markdown_path = arguments.source
